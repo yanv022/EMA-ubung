@@ -11,7 +11,11 @@ const routes: Routes = [
   {
     path: 'record-list',
     loadChildren: () => import('./record/record-list/record-list.module').then( m => m.RecordListPageModule)
+  },  {
+    path: 'record-detail',
+    loadChildren: () => import('./record/record-detail/record-detail.module').then( m => m.RecordDetailPageModule)
   },
+
 ];
 
 @NgModule({
