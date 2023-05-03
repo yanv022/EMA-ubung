@@ -35,7 +35,9 @@ export class Statistic {
     if(gewichtcreditPoints != 0) {
       this.averageGrade = Math.round(this.averageGrade / (gewichtcreditPoints));
     }else this.averageGrade = 0;
-    this.durchschnittsnote = this.durchschnittsnote / this.sumCrp ;
+    if(this.sumCrp != 0){
+      this.durchschnittsnote = this.durchschnittsnote / this.sumCrp ;
+    }else this.durchschnittsnote = 0;
     this.crpToEnd = 180 - this.sumCrp ;
   }
 
