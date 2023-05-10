@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-title>Leistungen</ion-title>
+    <ion-title>{{pageTitle}}</ion-title>
     <ion-buttons slot="end">
       <ion-button (click)="showStats()">
         <ion-icon slot="icon-only" name="stats-chart-outline"></ion-icon>
@@ -8,6 +8,22 @@
       <ion-button (click)="createRecord()">
         <ion-icon slot="icon-only" name="add"></ion-icon>
       </ion-button>
+      <ion-button (click)="test()">
+        <ion-icon slot="icon-only" name="log-out-outline"></ion-icon>
+      </ion-button>
+      <ion-button (click)="delete()">
+        <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+      </ion-button>
+      <ion-button  id="present-alert">
+        <ion-icon slot="icon-only" name="add"></ion-icon>
+      </ion-button>
+      <ion-alert
+        trigger="present-alert"
+        class="custom-alert"
+        header="Leistung erstellen"
+        [buttons]="alertButtons"
+        [inputs]="alertInputs"
+      ></ion-alert>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -18,7 +34,7 @@
       <ion-title size="large">record-list</ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-item *ngFor="let record of records">
+  <ion-item *ngFor="let record of records" (click)="editRecord(record)">
     <ion-label>
       <h2>{{record.moduleName}}</h2>
       <p>{{record.moduleNr}}</p>

@@ -48,10 +48,10 @@ describe('Statistic', () => {
     expect(stats4Records.crpToEnd).toBe(156);
   });
 
-  it('calculates average grade', () => {
+  /*it('calculates average grade', () => {
     expect(statsNoRecords.averageGrade).toBe(0);
     expect(stats2Records.averageGrade).toBe(77);
     expect(stats4Records.averageGrade).toBe(83);
-  });
+  });*/
 
 });

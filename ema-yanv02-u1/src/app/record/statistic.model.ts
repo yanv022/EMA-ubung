@@ -21,15 +21,17 @@ export class Statistic {
     let gewichtcreditPoints = 0;
     this.sumCrp = 0;
     for(let i = 0; i < noten.length; i++){
-      this.durchschnittsnote += noten[i].grade * noten[i].crp ;
-      this.sumCrp += noten[i].crp ;
+
+      this.durchschnittsnote += (noten[i]?.grade ?? 0)  * (noten[i]?.crp ?? 0) ;
+      this.sumCrp += noten[i]?.crp || 0 ;
       if(noten[i].halfWeighted){
         this.hwCount += 1;
-        this.averageGrade += noten[i].grade * noten[i].crp /2 ;
-        gewichtcreditPoints += noten[i].crp /2 ;
+        //pb avec le point d´interrogation
+        this.averageGrade += (noten[i]?.grade?? 0) * (noten[i]?.crp ?? 0) /2 ;
+        gewichtcreditPoints += noten[i]?.crp || 0 /2 ;
       }else {
-        this.averageGrade += noten[i].grade * noten[i].crp ;
-        gewichtcreditPoints += noten[i].crp ;
+        this.averageGrade += (noten[i]?.grade?? 0) * (noten[i]?.crp ?? 0) ;
+        gewichtcreditPoints += noten[i]?.crp ?? 0 ;
       }
     }
     if(gewichtcreditPoints != 0) {
@@ -40,5 +42,22 @@ export class Statistic {
     }else this.durchschnittsnote = 0;
     this.crpToEnd = 180 - this.sumCrp ;
   }
+
+  get averageGradeRounded(): number {
+    return Math.round(this.averageGrade);
+  }
+  get durchschnittsnoteRounded(): number {
+    return Math.round(this.durchschnittsnote);
+  }
+  get crpToEndRounded(): number {
+    return Math.round(this.crpToEnd);
+  }
+  get sumCrpRounded(): number {
+    return Math.round(this.sumCrp);
+  }
+  get hwCountRounded(): number {
+    return Math.round(this.hwCount);
+  }
+
 
 }
