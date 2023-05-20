@@ -23,9 +23,23 @@
              [counter]="true"
              required>
   </ion-input>
-  <ion-text color="danger" *ngIf="errors.get('moduleNr')">
+    <ion-text color="danger" *ngIf="errors.get('moduleNr')">
+        <p class="ion-text-end ion-no-margin ion-padding-end">
+        {{errors.get('moduleNr')}}
+        </p>
+    </ion-text>
+  <ion-input class="ion-text-end"
+             #name
+             label="Name*"
+             fill="solid"
+             type="text"
+             maxlength="10"
+             [counter]="true"
+             required>
+  </ion-input>
+  <ion-text color="danger" *ngIf="errors.get('name')">
     <p class="ion-text-end ion-no-margin ion-padding-end">
-      {{errors.get('moduleNr')}}
+      {{errors.get('name')}}
     </p>
   </ion-text>
   <ion-item fill="solid">
@@ -36,6 +50,32 @@
                        [value]="year">{{year}}
     </ion-select-option>
   </ion-select>
+  <ion-input class="ion-text-end"
+             #creditpoints
+             label="Creditpoints*"
+             fill="solid"
+             type="text"
+             maxlength="10"
+             [counter]="true"
+             required>
+  </ion-input>
+    <ion-text color="danger" *ngIf="errors.get('creditpoints')">
+        <p class="ion-text-end ion-no-margin ion-padding-end">
+        {{errors.get('creditpoints')}}
+        </p>
+    </ion-text>
+  <ion-input class="ion-text-end"
+             #note
+             label="Note*"
+             fill="solid"
+             type="text"
+             maxlength="10"
+             [counter]="true"
+             required>
+  </ion-input>
+  <ion-item fill="solid">
+    <ion-checkbox>50%-Leistung</ion-checkbox>
+  </ion-item>
   <ion-button class="ion-padding" expand="block" (click)="save()">
     Speichern
   </ion-button>

@@ -18,12 +18,9 @@ export class RecordListPage implements OnInit {
   ];
   public handlerMessage = 'Neues Modul';
   public roleMessage = 'Bitte geben Sie die Daten ein';
-  public alertInputs = [
+  public textContent = [
     {
-      placeholder: 'moduleNr',
-      attributes: {
-        maxlength: 6,
-      },
+      placeholder: 'Module Nr.',
     },
     {
       placeholder: 'Name',
@@ -34,16 +31,6 @@ export class RecordListPage implements OnInit {
     },
     {
       type: 'checkbox',
-    },
-  ];
-  public alertButtons = [
-    {
-      text: 'No',
-      cssClass: 'alert-button-cancel',
-    },
-    {
-      text: 'speichern',
-      cssClass: 'alert-button-confirm',
     },
   ];
   pageTitle = 'Leistungen';

@@ -1,30 +1,20 @@
 <ion-header>
   <ion-toolbar color="primary">
     <ion-title>{{pageTitle}}</ion-title>
-    <ion-buttons slot="end">
+    <ion-buttons slot="end" id="present-alert">
       <ion-button (click)="showStats()">
         <ion-icon slot="icon-only" name="stats-chart-outline"></ion-icon>
-      </ion-button>
-      <ion-button (click)="createRecord()">
-        <ion-icon slot="icon-only" name="add"></ion-icon>
-      </ion-button>
-      <ion-button (click)="test()">
-        <ion-icon slot="icon-only" name="log-out-outline"></ion-icon>
-      </ion-button>
-      <ion-button (click)="delete()">
-        <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
-      </ion-button>
-      <ion-button  id="present-alert">
-        <ion-icon slot="icon-only" name="add"></ion-icon>
       </ion-button>
       <ion-alert
         trigger="present-alert"
         class="custom-alert"
-        header="Leistung erstellen"
-        [buttons]="alertButtons"
-        [inputs]="alertInputs"
+        header="stats"
+        [textContent]="textContent"
       ></ion-alert>
     </ion-buttons>
+    <ion-button (click)="createRecord()">
+      <ion-icon slot="icon-only" name="add"></ion-icon>
+    </ion-button>
   </ion-toolbar>
 </ion-header>
 
